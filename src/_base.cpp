@@ -6,6 +6,8 @@ typedef long long ll;
 
 #define rep(i,a,b) for(int i = a; i < b; i++)
 #define mp make_pair
+#define fi first
+#define se second
 #define mod 1000000007
 
 int main() {
