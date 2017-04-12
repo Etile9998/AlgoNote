@@ -1,3 +1,4 @@
+// (2 ~ 16) -> (2 ~ 16) base conveting
 #include <iostream>
 #include <string>
 using namespace std;
