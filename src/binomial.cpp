@@ -18,15 +18,15 @@ void prec() {
 
             // Calculate value using previosly stored values
             else
-                C[i][j] = C[i - 1][j - 1] + C[i - 1][j] %= mod;
+                C[i][j] = (C[i - 1][j - 1] + C[i - 1][j]) % mod;
         }
-     }
+    }
 }
 
 int main() {
     prec();
     int n, k;
     cin >> n >> k;
-    cout << C[n][k]<<'\n';
+    cout << C[n][k] << '\n';
     return 0;
 }
