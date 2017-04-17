@@ -15,18 +15,13 @@ void prec() {
         p[i] = 1;
     p[0] = p[1] = 0;
 
-    // 2의 배수 제거
+    // 짝수 합성수 제거
     for (i = 4; i < MAXN; i += 2) {
         p[i] = 0;
     }
 
-    // 3의 배수 제거
-    for (i = 9; i < MAXN; i += 3) {
-        p[i] = 0;
-    }
-
-    // 이후 합성 수 제거
-    for (i = 5; i < MAXN; i += 6) {
+    // 홀수 합성수 제거
+    for (i = 3; i < MAXN; i += 2) {
         if (p[i] == 0)
             continue;
         for (j = i*i; j < MAXN; j += i)
@@ -34,7 +29,7 @@ void prec() {
     }
 
     int cnt = 0;
-    for (i = 2; i < 31624; i++)
+    for (i = 2; i < MAXN; i++)
         if (p[i] == 1) {
             prime[cnt] = i;
             cnt++;
