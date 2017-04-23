@@ -11,7 +11,7 @@ typedef long long ll;
 #define mp make_pair
 #define fi first
 #define se second
-#define mod 1e9+7
+#define mod 1000000007
 
 int main() {
     ios_base::sync_with_stdio(false); cin.tie(0);
