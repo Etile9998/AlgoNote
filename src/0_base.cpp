@@ -7,7 +7,7 @@ using namespace std;
 
 typedef long long ll;
 
-#define rep(i,a,b) for(int i = a; i < b; i++)
+#define rep(i,a,b) for(int i = a; i < b; ++i)
 #define mp make_pair
 #define pb push_back
 #define fi first
@@ -17,8 +17,8 @@ typedef long long ll;
 int main() {
     ios_base::sync_with_stdio(false); cin.tie(0);
 #ifdef _CONSOLE
-    freopen("test.in", "r", stdin);
-    freopen("test.out", "w", stdout);
+    freopen("sample.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 #endif
     // your code goes here
     
