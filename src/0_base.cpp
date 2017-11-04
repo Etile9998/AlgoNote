@@ -2,20 +2,20 @@
 using namespace std;
 
 using ll = long long;
-
-#define rep(i,a,b) for(int i = a; i < b; ++i)
-#define mp make_pair
+const int MOD = 1e9 + 7;
+#define FOR(i,a,b) for(int i=(a);i<(b);++i)
+#define REP(i,n) FOR(i,0,n)
+#define FORE(it,x) for(typeof(x.begin()) it=x.begin();it!=x.end();++it)
 #define pb push_back
-#define fi first
-#define se second
-const int mod = 1e9 + 7;
+#define all(x) (x).begin(),(x).end()
+#define CLEAR(x,with) memset(x,with,sizeof(x))
+#define sz size()
 
 int main() {
-	ios::sync_with_stdio(false); cin.tie(0);
 #ifdef _CONSOLE
 	freopen("input.txt", "r", stdin);
 #endif
-	// your code goes here
+	ios::sync_with_stdio(0); cin.tie(0);
 
 	return 0;
 }
