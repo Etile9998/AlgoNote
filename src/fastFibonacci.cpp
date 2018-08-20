@@ -4,12 +4,6 @@ f(0) = 0
 f(1) = 1
 f(n) = f(n-1) + f(n-2)
 */
-#ifdef _CONSOLE
-#include "bits/stdc++.h"
-#else
-#include <bits/stdc++.h>
-#endif
-using namespace std;
 typedef long long ll;
 #define rep(i,a,b) for(int i = a; i < b; ++i)
 #define mod 1000000007
