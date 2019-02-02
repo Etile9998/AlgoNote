@@ -1,0 +1,7 @@
+.setup.py
+README.md
+BOJ_Auto_Submit.egg-info/PKG-INFO
+BOJ_Auto_Submit.egg-info/SOURCES.txt
+BOJ_Auto_Submit.egg-info/dependency_links.txt
+BOJ_Auto_Submit.egg-info/requires.txt
+BOJ_Auto_Submit.egg-info/top_level.txt
