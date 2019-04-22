@@ -1,53 +1,32 @@
-/*
-fast fibonacci
-f(0) = 0
-f(1) = 1
-f(n) = f(n-1) + f(n-2)
-*/
-typedef long long ll;
-#define rep(i,a,b) for(int i = a; i < b; ++i)
-#define mod 1000000007
-typedef vector<vector<ll>> matrix;
+#include <bits/stdc++.h>
+using namespace std;
 
-matrix operator*(const matrix &a, const matrix &b) {
-    int ni = a.size();      // a의 행
-    int nj = b[0].size();   // b의 열
-    int nk = a[0].size();   // a의 열 || b의 행
-    matrix c(ni, vector<ll>(nj));
-    rep(i, 0, ni) {
-        rep(j, 0, nj) {
-            rep(k, 0, nk) {
-                c[i][j] += a[i][k] * b[k][j];
+typedef int64_t ll;
+typedef vector<vector<ll> > matrix;
+const int len = 2;
+const ll P = 1e9+7;
+matrix operator * (const matrix &a, const matrix &b){
+    size_t len = a.size();
+    matrix ret(len, vector<ll>(len));
+    for (size_t i = 0 ; i < len ; i++){
+        for (size_t k = 0 ; k < len ; k++){
+            for (size_t j = 0 ; j < len ; j++){
+                ret[i][j] = (ret[i][j] + a[i][k] * b[k][j]) % P;
             }
-            c[i][j] %= mod;
         }
     }
-    return c;
+    return ret;
 }
 
-matrix pow(matrix a, ll n) {
-    if (n == 0) {
-        return matrix{ {1,0},{0,1} };
+ll fibo(int x){
+    if (x <= 0) return 0;
+    if (x <= 2) return 1;
+    matrix ret = {{1,0},{0,1}};
+    matrix a = {{1,1},{1, 0}};
+    while(x){
+        if (x % 2 == 1) ret = ret * a;
+        a = a * a;
+        x /= 2;
     }
-
-    matrix t = pow(a, n / 2);
-    if (n % 2)
-        return t*t*a;
-    else
-        return t*t;
-}
-
-int main() {
-    matrix a = { {1,1},{1,0} };
-    int n;
-    cin >> n;
-    /*
-    F(0) = 0
-    F(1) = 1
-    F(N) = F(N-1) + F(N-2)
-    */
-    if (n < 1)
-        cout << 0 << '\n';
-    else
-        cout << pow(a, n - 1)[0][0] << '\n';
+    return ret[0][1];
 }
