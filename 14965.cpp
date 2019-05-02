@@ -2,20 +2,30 @@
 using namespace std;
 
 int n;
-string s[20000];
+string a[20000];
 int ans;
+
+unordered_set<string> s;
+unordered_map<string, int> cnt;
 
 int main(){
 	cin >> n;
 	for (int i = 0 ; i < n ; i++){
-		cin >> s[i];
-	}
-	for (int i = 0 ; i < n ; i++){
-		for (int j = 0; j < n ; j++){
-			if(i==j) continue;	
-			if (s[i].find(s[j]) != string::npos)ans++;
-		}
-	}
-	cout << ans << '\n';
+		cin >> a[i];
+        s.clear();
+        for (size_t j = 0 ; j < a[i].size() ; j++){
+            string tmp;
+            for (size_t k = j ; k < a[i].size() ; k++){
+                tmp += a[i][k];
+                s.insert(tmp);
+            }
+        }
+        for (auto &x : s)
+            cnt[x]++;
+    }
+
+    for (auto &x : a)
+        ans += cnt[x];
+	cout << ans - n << '\n';
     return 0;
 }
