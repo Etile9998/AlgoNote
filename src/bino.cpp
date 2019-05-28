@@ -6,19 +6,20 @@ const ll p = 1e9 + 7;
 ll fac[MAXN];
 ll inv[MAXN];
 
-ll power(ll a, ll n){
-    if (n == 0) return 1;
-    if (n == 1) return n;
+ll power(ll x, ll y){
+    if (y == 0) return 1;
+    if (y == 1) return x;
 
     ll ret = 1;
-    while(n){
-        if (n % 2 == 1) ret = ret * a % p;
-        a = a * a % p;
-        n /= 2;
+    while(y){
+        if (y % 2 == 1) ret = ret * x % P;
+        x = x * x % P;
+        y /= 2;
     }
 
     return ret;
 }
+
 void prec(){
     fac[0] = 1;
     for (int i = 1; i < MAXN; i++)
