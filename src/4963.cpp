@@ -6,24 +6,29 @@ const int dx[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
 const int dy[8] = {-1, 0, 1, -1,  1, -1,0, 1};
 
 int a[50][50] = {0};
-bool check[50][50] = {0};
 
 void go(int x, int y){
-    if (check[x][y])return;
-    check[x][y] = true; 
+    a[x][y] = 0;
+    for (int i = 0 ; i < 8 ; i++){
+        int tx = x + dx[i];
+        int ty = y + dy[i];
+        if (0 <= tx && tx < h && 0 <= ty && ty < w && a[tx][ty]){
+            go(tx, ty);
+        }
+    }
 }
 
 void solve(){
     int ans = 0;
-    for (int i = 0 ; i < w ; i++){
-        for (int j = 0 ; j < h ; j++){
+    for (int i = 0 ; i < h ; i++){
+        for (int j = 0 ; j < w ; j++){
             cin >> a[i][j];
         }
     }
     
-    for (int i = 0 ; i < w ; i++){
-        for (int j = 0 ; j < h ; j++){
-            if (check[i][j]){
+    for (int i = 0 ; i < h ; i++){
+        for (int j = 0 ; j < w ; j++){
+            if (a[i][j]){
                 go(i, j);
                 ans++;
             }
@@ -40,8 +45,6 @@ int main(){
     cin >> w >> h;
     while(w){
         solve();
-        memset(a, 0, sizeof a);
-        memset(check, 0, sizeof check);
         cin >> w >> h;
     }
     return 0;
